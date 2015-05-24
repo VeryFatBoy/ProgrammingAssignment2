@@ -1,6 +1,24 @@
 ## Below are two functions that are used to create a special object that stores a matrix and cache's its inverse.
 
-## The makeCacheMatrix function creates a special matrix, which is a list containing a function to:
+## Example usage:
+## > source("cachematrix.R")
+## > i <- makeCacheMatrix()
+## > i$set(matrix(c(-2, -1, 1, 2), 2, 2))        Create a 2 x 2 matrix
+## > i$get()                                     Display the matrix
+##      [,1] [,2]
+## [1,]   -2    1
+## [2,]   -1    2
+## > cacheSolve(i)                               Get the inverse of the matrix
+##            [,1]      [,2]
+## [1,] -0.6666667 0.3333333
+## [2,] -0.3333333 0.6666667
+## > cacheSolve(i)                               Get the inverse again
+## getting cached data                           This time, the cached values are returned
+##            [,1]      [,2]
+## [1,] -0.6666667 0.3333333
+## [2,] -0.3333333 0.6666667
+
+## The makeCacheMatrix function creates a special matrix, which is a list containing operations to:
 ## 1. Set the value of the matrix
 ## 2. Get the value of the matrix
 ## 3. Set the inverse value of the matrix
